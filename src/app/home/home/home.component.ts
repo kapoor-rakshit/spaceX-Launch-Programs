@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
 
+//import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -21,6 +23,8 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService) { }
 
   ngOnInit(): void {
+    //this.spinnerService.show();
+
     this.homeService.getAllData().subscribe((respData: any)=> {
       this.spaceLaunchesDataArr = [...respData];
 
@@ -31,6 +35,8 @@ export class HomeComponent implements OnInit {
       for(let year in this.yearDict) {
         this.yearArr.push({"yearVal": year, "yearClicked": this.yearDict[year]});
       }
+
+      //this.spinnerService.hide();
     },
     (err: Error)=> {
       console.error(`ERROR GETTING ALL LAUNCH PROGRAMS ==> ${err.message}`);
@@ -57,6 +63,9 @@ export class HomeComponent implements OnInit {
   }
 
   getFilteredData() {
+    this.searchString = "";
+    //this.spinnerService.show();
+
     if(this.filteredYearIndex != null) {
       this.searchString+=`&launch_year=${this.yearArr[this.filteredYearIndex]["yearVal"]}`;
     }
@@ -71,6 +80,7 @@ export class HomeComponent implements OnInit {
 
     this.homeService.getFilteredData(this.searchString).subscribe((respData: any)=> {
       this.spaceLaunchesDataArr = [...respData];
+      //this.spinnerService.hide();
     },
     (err: Error)=> {
       console.error(`ERROR GETTING FILTERED LAUNCH PROGRAMS ==> ${err.message}`);

@@ -1,3 +1,17 @@
+.filterBtns {
+    background-color: lightgreen;
+    margin: 5px;
+}
+
+.filterBtns:hover {
+    background-color: greenyellow;
+}
+
 .clickedBtn {
-    background-color: aqua;
+    background-color: darkgreen !important;
+    color: white !important;
+}
+
+.title {
+    font-size: 18px;
 }

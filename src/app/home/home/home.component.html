@@ -1,32 +1,51 @@
 <div class="row">
-    <div class="col">
-        <h3>Filters</h3>
-        <p>Launch Year</p>
+    <div class="col-2 col-s-3 text-center">
+        <h2>Filters</h2>
+        <br/>
+        <p class="title">Launch Year</p>
+        <hr/>
         <div class="row">
             <div class="col" *ngFor="let year of yearArr; let ind = index;">
-                <button class="btn btn-success" [ngClass]="{'clickedBtn': year.yearClicked}" (click)="getYearFilteredData(ind)">{{year.yearVal}}</button>
+                <button class="btn filterBtns" [ngClass]="{'clickedBtn': year.yearClicked}" (click)="getYearFilteredData(ind)">{{year.yearVal}}</button>
             </div>
         </div>
-        <p>Successful Launch</p>
+        <br/>
+        <p class="title">Successful Launch</p>
+        <hr/>
         <div class="row">
             <div class="col">
-                <button class="btn btn-success" [ngClass]="{'clickedBtn': launchSuccess == true}" (click)="getLaunchFilteredData(true)">True</button>
+                <button class="btn filterBtns" [ngClass]="{'clickedBtn': launchSuccess == true}" (click)="getLaunchFilteredData(true)">True</button>
             </div>
             <div class="col">
-                <button class="btn btn-success" [ngClass]="{'clickedBtn': launchSuccess == false}" (click)="getLaunchFilteredData(false)">False</button>
+                <button class="btn filterBtns" [ngClass]="{'clickedBtn': launchSuccess == false}" (click)="getLaunchFilteredData(false)">False</button>
             </div>
         </div>
-        <p>Successful Landing</p>
+        <br/>
+        <p class="title">Successful Landing</p>
+        <hr/>
         <div class="row">
             <div class="col">
-                <button class="btn btn-success" [ngClass]="{'clickedBtn': landSuccess == true}" (click)="getLandFilteredData(true)">True</button>
+                <button class="btn filterBtns" [ngClass]="{'clickedBtn': landSuccess == true}" (click)="getLandFilteredData(true)">True</button>
             </div>
             <div class="col">
-                <button class="btn btn-success" [ngClass]="{'clickedBtn': landSuccess == false}" (click)="getLandFilteredData(false)">False</button>
+                <button class="btn filterBtns" [ngClass]="{'clickedBtn': landSuccess == false}" (click)="getLandFilteredData(false)">False</button>
             </div>
         </div>
     </div>
-    <div class="col">
-
+    <div class="col-10 col-s-9 text-center">
+        <div class="row text-center">
+            <div class="card text-left mb-4 ml-4 mr-4 w-10 mat-elevation-z8" *ngFor="let program of spaceLaunchesDataArr; let ind = index;">
+                    <img [src]="program.links.mission_patch_small" width="50%" class="card-img-top" alt="Mission Image Patch">
+                    <div class="card-body">
+                        <h5 class="card-title">{{program.mission_name}} #{{program.flight_number}}</h5>
+                        <p class="card-text">Mission Ids:</p>
+                        <ul>
+                            <li *ngFor="let missionID of program.mission_id">{{missionID}}</li>
+                        </ul>
+                        <p>Successful Launch: {{program.launch_success}}</p>
+                        <p>Successful Landing: {{program.rocket.first_stage.cores[0].land_success || 'false'}}</p>
+                    </div>
+            </div>
+        </div>
     </div>
 </div>
