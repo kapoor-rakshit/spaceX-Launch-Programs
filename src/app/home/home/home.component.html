@@ -1,1 +1,32 @@
-<p>home works!</p>
+<div class="row">
+    <div class="col">
+        <h3>Filters</h3>
+        <p>Launch Year</p>
+        <div class="row">
+            <div class="col" *ngFor="let year of yearArr; let ind = index;">
+                <button class="btn btn-success" [ngClass]="{'clickedBtn': year.yearClicked}" (click)="getYearFilteredData(ind)">{{year.yearVal}}</button>
+            </div>
+        </div>
+        <p>Successful Launch</p>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success" [ngClass]="{'clickedBtn': launchSuccess == true}" (click)="getLaunchFilteredData(true)">True</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" [ngClass]="{'clickedBtn': launchSuccess == false}" (click)="getLaunchFilteredData(false)">False</button>
+            </div>
+        </div>
+        <p>Successful Landing</p>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success" [ngClass]="{'clickedBtn': landSuccess == true}" (click)="getLandFilteredData(true)">True</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" [ngClass]="{'clickedBtn': landSuccess == false}" (click)="getLandFilteredData(false)">False</button>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+
+    </div>
+</div>

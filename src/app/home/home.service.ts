@@ -23,7 +23,7 @@ export class HomeService {
   }
 
   getFilteredData(searchString) {
-    return this._http.get(`${this.server.baseURL}&${searchString}`).pipe(catchError((err: Error) => 
+    return this._http.get(`${this.server.baseURL}${searchString}`).pipe(catchError((err: Error) => 
     { return throwError(err); }));
   }
 }
