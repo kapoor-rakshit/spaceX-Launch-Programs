@@ -16,7 +16,7 @@ import { NgxUiLoaderModule } from  'ngx-ui-loader';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxUiLoaderModule,

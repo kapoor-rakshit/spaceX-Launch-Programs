@@ -33,20 +33,20 @@
         </div>
     </div>
     <div *ngIf="!dataFound" class="col-9 col-s-8 nodataBanner mat-elevation-z8">
-        <p>No data found at the moment.</p>
+        <h3 class="titleProgram">No data found at the moment.</h3>
     </div>
     <div class="col-10 col-s-9">
         <div class="rowForPrograms">
             <div class="card mat-elevation-z8" *ngFor="let program of spaceLaunchesDataArr; let ind = index;">
                     <img [src]="program.links.mission_patch_small" class="card-img-top" alt="Mission Image Patch">
                     <div class="card-body">
-                        <h5 class="card-title">{{program.mission_name}} #{{program.flight_number}}</h5>
-                        <p class="card-text">Mission Ids:</p>
+                        <h3 class="card-title titleProgram">{{program.mission_name}} #{{program.flight_number}}</h3>
+                        <p class="card-text"><b>Mission Ids:</b></p>
                         <ul>
                             <li *ngFor="let missionID of program.mission_id">{{missionID}}</li>
                         </ul>
-                        <p>Successful Launch: {{program.launch_success}}</p>
-                        <p>Successful Landing: {{program.rocket.first_stage.cores[0].land_success || 'false'}}</p>
+                        <p>Successful Launch: <span [ngClass]="{'successProgram': program.launch_success, 'failureProgram': !program.launch_success}">{{program.launch_success}}</span></p>
+                        <p>Successful Landing: <span [ngClass]="{'successProgram': program.rocket.first_stage.cores[0].land_success, 'failureProgram': !program.rocket.first_stage.cores[0].land_success}">{{program.rocket.first_stage.cores[0].land_success || 'false'}}</span></p>
                     </div>
             </div>
         </div>
