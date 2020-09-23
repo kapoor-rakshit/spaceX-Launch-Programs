@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   landSuccess = null;
 
   searchString = "";
+  dataFound: boolean = false;
 
   constructor(private homeService: HomeService) { }
 
@@ -36,6 +37,13 @@ export class HomeComponent implements OnInit {
         this.yearArr.push({"yearVal": year, "yearClicked": this.yearDict[year]});
       }
 
+      if(this.spaceLaunchesDataArr.length > 0) {
+        this.dataFound = true;
+      }
+      else {
+        this.dataFound = false;
+      }
+      
       //this.spinnerService.hide();
     },
     (err: Error)=> {
@@ -80,6 +88,13 @@ export class HomeComponent implements OnInit {
 
     this.homeService.getFilteredData(this.searchString).subscribe((respData: any)=> {
       this.spaceLaunchesDataArr = [...respData];
+
+      if(this.spaceLaunchesDataArr.length > 0) {
+        this.dataFound = true;
+      }
+      else {
+        this.dataFound = false;
+      }
       //this.spinnerService.hide();
     },
     (err: Error)=> {
