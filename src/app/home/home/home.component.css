@@ -19,11 +19,12 @@
 .nodataBanner {
     border-radius: 5px;
     height: fit-content;
-    width: fit-content;
     padding: 20px;
+    text-align: center;
+    margin-top: 8%;
 }
 
-.row {
+.rowForPrograms {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -56,6 +57,7 @@
 }
 }
 
+
 @media only screen and (max-width: 700px) {
     .card {
         border-radius: 10px;
@@ -63,7 +65,7 @@
         background-color: #fafafa;
         display: inline-block;
         margin: auto;
-        width: 70%;
+        width: 100%;
         align-items: center;
         line-height: 24px;
 }

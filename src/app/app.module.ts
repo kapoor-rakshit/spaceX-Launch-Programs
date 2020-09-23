@@ -9,6 +9,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HomeModule } from './home/home.module';
 
+import { NgxUiLoaderModule } from  'ngx-ui-loader';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,6 +19,7 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxUiLoaderModule,
     FormsModule,
     HomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

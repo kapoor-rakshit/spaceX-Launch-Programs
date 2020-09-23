@@ -32,11 +32,11 @@
             </div>
         </div>
     </div>
-    <div *ngIf="!dataFound" class="nodataBanner mat-elevation-z8">
+    <div *ngIf="!dataFound" class="col-9 col-s-8 nodataBanner mat-elevation-z8">
         <p>No data found at the moment.</p>
     </div>
-    <div *ngIf="dataFound" class="col-10 col-s-9">
-        <div class="row">
+    <div class="col-10 col-s-9">
+        <div class="rowForPrograms">
             <div class="card mat-elevation-z8" *ngFor="let program of spaceLaunchesDataArr; let ind = index;">
                     <img [src]="program.links.mission_patch_small" class="card-img-top" alt="Mission Image Patch">
                     <div class="card-body">

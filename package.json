@@ -25,6 +25,7 @@
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "ng4-loading-spinner": "^1.2.3",
+    "ngx-ui-loader": "^7.2.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

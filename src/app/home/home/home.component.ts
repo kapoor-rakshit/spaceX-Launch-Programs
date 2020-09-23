@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
 
 //import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { NgxUiLoaderService } from 'ngx-ui-loader'; // Import NgxUiLoaderService
 
 @Component({
   selector: 'app-home',
@@ -21,10 +22,11 @@ export class HomeComponent implements OnInit {
   searchString = "";
   dataFound: boolean = false;
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService, private ngxService: NgxUiLoaderService) { }
 
   ngOnInit(): void {
     //this.spinnerService.show();
+    this.ngxService.start();
 
     this.homeService.getAllData().subscribe((respData: any)=> {
       this.spaceLaunchesDataArr = [...respData];
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit {
         this.dataFound = false;
       }
       
+      this.ngxService.stop();
       //this.spinnerService.hide();
     },
     (err: Error)=> {
@@ -73,6 +76,7 @@ export class HomeComponent implements OnInit {
   getFilteredData() {
     this.searchString = "";
     //this.spinnerService.show();
+    this.ngxService.start();
 
     if(this.filteredYearIndex != null) {
       this.searchString+=`&launch_year=${this.yearArr[this.filteredYearIndex]["yearVal"]}`;
@@ -95,6 +99,8 @@ export class HomeComponent implements OnInit {
       else {
         this.dataFound = false;
       }
+
+      this.ngxService.stop();
       //this.spinnerService.hide();
     },
     (err: Error)=> {
