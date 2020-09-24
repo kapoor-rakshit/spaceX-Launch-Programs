@@ -70,6 +70,12 @@
 }
 }
 
+@media only screen and (max-width: 1024px) and (min-width: 700px) {
+    .sidebar {
+        width: 22%;
+}
+}
+
 
 @media only screen and (max-width: 700px) {
     .card {
@@ -78,8 +84,14 @@
         background-color: #fafafa;
         display: inline-block;
         margin: auto;
-        width: 100%;
+        width: 80%;
         align-items: center;
         line-height: 24px;
+}
+}
+
+@media only screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
 }
 }
