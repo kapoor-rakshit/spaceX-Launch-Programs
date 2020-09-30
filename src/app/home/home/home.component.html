@@ -9,14 +9,18 @@
         </div>
         <br/>
         <p class="title">Successful Launch</p>
-        <hr/>   
-        <button class="btn filterBtns" [ngClass]="{'clickedBtn': filteredLaunchSuccess == true}" (click)="getLaunchFilteredData(true)">True</button>    
-        <button class="btn filterBtns" [ngClass]="{'clickedBtn': filteredLaunchSuccess == false}" (click)="getLaunchFilteredData(false)">False</button>
-        <br/><br/>
+        <hr/>
+        <div class="launchFilterBtns">
+            <button class="btn filterBtns" [ngClass]="{'clickedBtn': filteredLaunchSuccess == true}" (click)="getLaunchFilteredData(true)">True</button>    
+            <button class="btn filterBtns" [ngClass]="{'clickedBtn': filteredLaunchSuccess == false}" (click)="getLaunchFilteredData(false)">False</button>
+        </div>  
+        <br/>
         <p class="title">Successful Landing</p>
-        <hr/>    
-        <button class="btn filterBtns" [ngClass]="{'clickedBtn': filteredLandSuccess == true}" (click)="getLandFilteredData(true)">True</button>    
-        <button class="btn filterBtns" [ngClass]="{'clickedBtn': filteredLandSuccess == false}" (click)="getLandFilteredData(false)">False</button>
+        <hr/>
+        <div class="landFilterBtns">
+            <button class="btn filterBtns" [ngClass]="{'clickedBtn': filteredLandSuccess == true}" (click)="getLandFilteredData(true)">True</button>    
+            <button class="btn filterBtns" [ngClass]="{'clickedBtn': filteredLandSuccess == false}" (click)="getLandFilteredData(false)">False</button>
+        </div>
     </div>
     <div *ngIf="!dataFound" class="nodataBanner mat-elevation-z8">
         <h3 class="titleProgram">No data found at the moment.</h3>

@@ -32,7 +32,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Miscellaneous points
 <ul>
 <li>
-Filter buttons for launch year are generated dynamically as per API response to prevent hardcoding of future years.
+Added toggle functionality on filter buttons.
+</li>
+<li>
+Added URL change on applying filters.
+</li>
+<li>
+Enhanced responsive behavior by adding breakpoints as per requirement.
 </li>
 <li>
 Base URL for API is configurable from a config.service.ts file to prevent need to edit URL in every module's .service.ts files

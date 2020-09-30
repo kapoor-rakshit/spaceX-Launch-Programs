@@ -5,11 +5,20 @@
 .footerTitle {
     text-align: center;
     font-size: 24px;
-    margin-top: 2%;
+    width: fit-content;
+    margin: auto;
+    margin-top: 3%;
 }
 
 .headerTitle{
     font-weight: bold;
     font-size: 36px;
     padding: 15px 10px;
+}
+
+@media only screen and (min-width: 1440px) {
+    .footerTitle, .headerTitle {
+        max-width: 1440px;
+        margin: auto;
+    }
 }
