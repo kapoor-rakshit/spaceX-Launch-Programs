@@ -46,4 +46,7 @@ Base URL for API is configurable from a config.service.ts file to prevent need t
 <li>
 Added SSR (Server Side Rendering) using Angular Universal tool.
 </li>
+<li>
+Configured application for angular element or web component use.
+</li>
 </ul>
